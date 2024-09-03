@@ -35,9 +35,9 @@ window.addEventListener("load", () => {
 
 arrayOfSquars.forEach((e) => {
   e.addEventListener("click", () => {
-    // Create O && X Checks Componnants
-
     if (turn === "x" && e.innerHTML == "") {
+      // Create O && X Checks Componnants
+
       let X_Check = document.createElement("div");
 
       X_Check.classList.add("check-x");
@@ -81,6 +81,16 @@ arrayOfSquars.forEach((e) => {
 
         count = !count;
       }
+    } else if (
+      arrayOfSquars.every((s) => {
+        return s.innerHTML != "";
+      })
+    ) {
+      arrayOfSquars.forEach((e) => {
+        e.innerHTML = "";
+        turn = "x";
+        playWith?.innerText = `"${turn}"`;
+      });
     }
 
     playWith?.innerText = `"${turn}"`;
@@ -183,6 +193,8 @@ function reset() {
       e.style.backgroundColor = "unset";
       e.innerHTML = "";
       count = true;
+      turn = "x";
+      playWith?.innerText = `"${turn}"`;
     });
   }, 750);
 }
@@ -196,5 +208,7 @@ clear?.addEventListener("click", () => {
 resetGame?.addEventListener("click", () => {
   arrayOfSquars.forEach((e) => {
     e.innerHTML = "";
+    turn = "x";
+    playWith?.innerText = `"${turn}"`;
   });
 });

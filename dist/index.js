@@ -22,8 +22,8 @@ window.addEventListener("load", () => {
 });
 arrayOfSquars.forEach((e) => {
     e.addEventListener("click", () => {
-        // Create O && X Checks Componnants
         if (turn === "x" && e.innerHTML == "") {
+            // Create O && X Checks Componnants
             let X_Check = document.createElement("div");
             X_Check.classList.add("check-x");
             let span1 = document.createElement("span");
@@ -52,6 +52,15 @@ arrayOfSquars.forEach((e) => {
                 sessionStorage.setItem("oValue", o_win === null || o_win === void 0 ? void 0 : o_win.innerHTML);
                 count = !count;
             }
+        }
+        else if (arrayOfSquars.every((s) => {
+            return s.innerHTML != "";
+        })) {
+            arrayOfSquars.forEach((e) => {
+                e.innerHTML = "";
+                turn = "x";
+                playWith === null || playWith === void 0 ? void 0 : playWith.innerText = `"${turn}"`;
+            });
         }
         playWith === null || playWith === void 0 ? void 0 : playWith.innerText = `"${turn}"`;
     });
@@ -143,6 +152,8 @@ function reset() {
             e.style.backgroundColor = "unset";
             e.innerHTML = "";
             count = true;
+            turn = "x";
+            playWith === null || playWith === void 0 ? void 0 : playWith.innerText = `"${turn}"`;
         });
     }, 750);
 }
@@ -154,5 +165,7 @@ clear === null || clear === void 0 ? void 0 : clear.addEventListener("click", ()
 resetGame === null || resetGame === void 0 ? void 0 : resetGame.addEventListener("click", () => {
     arrayOfSquars.forEach((e) => {
         e.innerHTML = "";
+        turn = "x";
+        playWith === null || playWith === void 0 ? void 0 : playWith.innerText = `"${turn}"`;
     });
 });
