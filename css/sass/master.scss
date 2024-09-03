@@ -107,7 +107,8 @@ body {
 }
 
 .control {
-  .clear-result {
+  .clear-result,
+  .reset-game {
     svg {
       color: white;
       &:hover {

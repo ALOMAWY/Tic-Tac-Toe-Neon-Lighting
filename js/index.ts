@@ -19,6 +19,8 @@ let o_win = document.querySelector(".o-win");
 
 let game = document.querySelector(".game");
 
+let resetGame = document.querySelector(".reset-game");
+
 game.style.height = game?.clientWidth + "px";
 
 window.addEventListener("load", () => {
@@ -189,4 +191,10 @@ clear?.addEventListener("click", () => {
   sessionStorage.clear();
   x_win?.innerHTML = 0;
   o_win?.innerHTML = 0;
+});
+
+resetGame?.addEventListener("click", () => {
+  arrayOfSquars.forEach((e) => {
+    e.innerHTML = "";
+  });
 });

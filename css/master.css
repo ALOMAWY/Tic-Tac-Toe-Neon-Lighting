@@ -207,9 +207,11 @@ body {
   background-color: rgba(255, 255, 255, 0.075);
 }
 
-.control .clear-result svg {
+.control .clear-result svg,
+.control .reset-game svg {
   color: white;
 }
-.control .clear-result svg:hover {
+.control .clear-result svg:hover,
+.control .reset-game svg:hover {
   color: red;
 }

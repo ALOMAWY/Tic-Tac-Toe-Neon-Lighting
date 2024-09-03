@@ -10,6 +10,7 @@ o_check.style.height = (o_check === null || o_check === void 0 ? void 0 : o_chec
 let x_win = document.querySelector(".x-win");
 let o_win = document.querySelector(".o-win");
 let game = document.querySelector(".game");
+let resetGame = document.querySelector(".reset-game");
 game.style.height = (game === null || game === void 0 ? void 0 : game.clientWidth) + "px";
 window.addEventListener("load", () => {
     x_win === null || x_win === void 0 ? void 0 : x_win.innerHTML = sessionStorage.getItem("xValue")
@@ -149,4 +150,9 @@ clear === null || clear === void 0 ? void 0 : clear.addEventListener("click", ()
     sessionStorage.clear();
     x_win === null || x_win === void 0 ? void 0 : x_win.innerHTML = 0;
     o_win === null || o_win === void 0 ? void 0 : o_win.innerHTML = 0;
+});
+resetGame === null || resetGame === void 0 ? void 0 : resetGame.addEventListener("click", () => {
+    arrayOfSquars.forEach((e) => {
+        e.innerHTML = "";
+    });
 });
