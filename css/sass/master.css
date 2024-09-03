@@ -1,0 +1,13 @@
+.container {
+  width: 600px;
+  height: 600px;
+  background-color: red;
+}
+.container .layer-lines .rows {
+  color: red;
+}
+.container .layer-lines .rows .line {
+  width: 100%;
+  background-color: white;
+  height: 4px;
+}

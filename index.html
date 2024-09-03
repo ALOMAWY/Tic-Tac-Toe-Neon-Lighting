@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+
+    <link rel="stylesheet" href="css/library/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/library/all.min.css" />
+    <link rel="stylesheet" href="css/library/normalize.css" />
+    <link rel="stylesheet" href="css/master.css" />
+
+    <!-- Get Font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Get Font  -->
+  </head>
+
+  <body class="vh-100">
+    <div class="container">
+      <div class="dashboard d-flex">
+        <div
+          class="x-box w-50 d-flex align-items-center justify-content-evenly"
+        >
+          <div class="check-x w-50"><span></span><span></span></div>
+          <div class="x-win text-white fs-1">0</div>
+        </div>
+        <div
+          class="o-box w-50 d-flex align-items-center justify-content-evenly"
+        >
+          <div class="check-o w-50"><span></span></div>
+          <div class="o-win text-white fs-1">0</div>
+        </div>
+      </div>
+      <div class="game">
+        <div class="layer layer-play d-flex w-100 h-100">
+          <div id="square1" class="square"></div>
+          <div id="square2" class="square"></div>
+          <div id="square3" class="square"></div>
+          <div id="square4" class="square"></div>
+          <div id="square5" class="square"></div>
+          <div id="square6" class="square"></div>
+          <div id="square7" class="square"></div>
+          <div id="square8" class="square"></div>
+          <div id="square9" class="square"></div>
+        </div>
+        <div class="layer layer-lines d-flex w-100 h-100">
+          <div class="rows w-100">
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+          <div class="columns w-100">
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="control w-100 d-flex align-items-center justify-content-evenly"
+      >
+        <div id="clear" class="clear-result">
+          <i class="fa-solid fa-trash fs-1" title="Clear Result"></i>
+        </div>
+        <div
+          class="play-with d-flex align-items-center justify-content-evenly fs-1 text-white"
+        >
+          Play With :
+          <span id="playWith" class="d-block fs-1 text-danger">"X"</span>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/libs/bootstrap.bundle.min.js"></script>
+    <script src="js/libs/all.min.js"></script>
+    <script src="dist/index.js"></script>
+  </body>
+</html>

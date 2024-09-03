@@ -1,0 +1,217 @@
+.check-x {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.check-x span {
+  display: inline-block;
+  margin: auto;
+  width: 4px;
+  height: 50%;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-box-shadow: 0 0 25px 10px #12b8ff;
+          box-shadow: 0 0 25px 10px #12b8ff;
+}
+.check-x span:first-child {
+  rotate: -35deg;
+  -webkit-transform: translate(calc(-50% + 34px), -50%);
+          transform: translate(calc(-50% + 34px), -50%);
+}
+.check-x span:last-child {
+  rotate: 35deg;
+  -webkit-transform: translate(calc(-50% - 34px), -50%);
+          transform: translate(calc(-50% - 34px), -50%);
+}
+.check-o {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.check-o span {
+  width: 45%;
+  height: 45%;
+  border-radius: 50%;
+  border: 4px solid white;
+  display: inline-block;
+  -webkit-box-shadow: 0 0 25px 5px #ff1493 inset;
+          box-shadow: 0 0 25px 5px #ff1493 inset;
+  position: relative;
+}
+.check-o span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid white;
+  -webkit-box-shadow: 0 0 25px 5px #ff1493;
+          box-shadow: 0 0 25px 5px #ff1493;
+}
+
+@media (max-width: 700px) {
+  .container {
+    min-width: 90%;
+    margin: 0;
+  }
+}
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: black;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.dashboard {
+  width: 100%;
+  padding: 0px;
+  height: 200px;
+  border: 4px solid white;
+  -webkit-box-shadow: 0 0 25px 10px #12b8ff;
+          box-shadow: 0 0 25px 10px #12b8ff;
+  position: relative;
+}
+.dashboard::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-box-shadow: 0 0 25px 5px #ff1493 inset;
+          box-shadow: 0 0 25px 5px #ff1493 inset;
+}
+
+.container {
+  width: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 50px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  min-height: 80vh;
+}
+
+.game {
+  position: relative;
+  width: 100%;
+}
+.game .layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.game .layer-lines {
+  z-index: -1;
+}
+.game .layer-lines .rows {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: red;
+}
+.game .layer-lines .rows .line {
+  width: 100%;
+  background-color: white;
+  -webkit-box-shadow: 0 0 25px 10px #12b8ff;
+          box-shadow: 0 0 25px 10px #12b8ff;
+  height: 4px;
+}
+.game .layer-lines .columns {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: red;
+}
+.game .layer-lines .columns .line {
+  width: 4px;
+  background-color: white;
+  -webkit-box-shadow: 0 0 25px 5px #ff1493;
+          box-shadow: 0 0 25px 5px #ff1493;
+  height: 100%;
+}
+.game .layer-play {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  z-index: 2;
+}
+.game .layer-play .square {
+  width: 33.33%;
+  height: 33.33%;
+}
+.game .layer-play .square:hover {
+  background-color: rgba(255, 255, 255, 0.075);
+}
+
+.control .clear-result svg {
+  color: white;
+}
+.control .clear-result svg:hover {
+  color: red;
+}
