@@ -65,14 +65,14 @@ arrayOfSquars.forEach((e) => {
       turn = "x";
     }
     if (winner(e)) {
-      if (turn == "x" && count) {
+      if (turn == "o" && count) {
         x_win?.innerHTML = +x_win.innerHTML + 1;
 
         sessionStorage.setItem("xValue", x_win?.innerHTML);
 
         count = !count;
       }
-      if (turn == "o" && count) {
+      if (turn == "x" && count) {
         o_win?.innerHTML = +o_win.innerHTML + 1;
 
         sessionStorage.setItem("oValue", o_win?.innerHTML);
@@ -180,6 +180,7 @@ function reset() {
     arrayOfSquars.forEach((e) => {
       e.style.backgroundColor = "unset";
       e.innerHTML = "";
+      count = true;
     });
   }, 750);
 }
