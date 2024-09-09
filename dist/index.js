@@ -13,12 +13,18 @@ let game = document.querySelector(".game");
 let resetGame = document.querySelector(".reset-game");
 game.style.height = (game === null || game === void 0 ? void 0 : game.clientWidth) + "px";
 window.addEventListener("load", () => {
-    x_win === null || x_win === void 0 ? void 0 : x_win.innerHTML = sessionStorage.getItem("xValue")
-        ? sessionStorage.getItem("xValue")
-        : 0;
-    o_win === null || o_win === void 0 ? void 0 : o_win.innerHTML = sessionStorage.getItem("oValue")
-        ? sessionStorage.getItem("oValue")
-        : 0;
+    let x_storege = sessionStorage.getItem("xValue");
+    if (x_storege) {
+        if (x_win) {
+            x_win.innerHTML = x_storege ? x_storege : "0";
+        }
+    }
+    let o_storege = sessionStorage.getItem("oValue");
+    if (o_storege) {
+        if (o_win) {
+            o_win.innerHTML = o_storege ? o_storege : "0";
+        }
+    }
 });
 arrayOfSquars.forEach((e) => {
     e.addEventListener("click", () => {
@@ -43,13 +49,17 @@ arrayOfSquars.forEach((e) => {
         }
         if (winner(e)) {
             if (turn == "o" && count) {
-                x_win === null || x_win === void 0 ? void 0 : x_win.innerHTML = +x_win.innerHTML + 1;
+                if (x_win) {
+                    x_win.innerHTML = `${+x_win.innerHTML + 1}`;
+                }
                 sessionStorage.setItem("xValue", x_win === null || x_win === void 0 ? void 0 : x_win.innerHTML);
                 count = !count;
             }
             if (turn == "x" && count) {
-                o_win === null || o_win === void 0 ? void 0 : o_win.innerHTML = +o_win.innerHTML + 1;
-                sessionStorage.setItem("oValue", o_win === null || o_win === void 0 ? void 0 : o_win.innerHTML);
+                if (o_win) {
+                    o_win.innerHTML = `${+o_win.innerHTML + 1}`;
+                    sessionStorage.setItem("oValue", o_win === null || o_win === void 0 ? void 0 : o_win.innerHTML);
+                }
                 count = !count;
             }
         }
@@ -59,10 +69,14 @@ arrayOfSquars.forEach((e) => {
             arrayOfSquars.forEach((e) => {
                 e.innerHTML = "";
                 turn = "x";
-                playWith === null || playWith === void 0 ? void 0 : playWith.innerText = `"${turn}"`;
+                if (playWith) {
+                    playWith.innerText = `"${turn}"`;
+                }
             });
         }
-        playWith === null || playWith === void 0 ? void 0 : playWith.innerText = `"${turn}"`;
+        if (playWith) {
+            playWith.innerText = `"${turn}"`;
+        }
     });
 });
 function winner(squares) {
@@ -71,27 +85,36 @@ function winner(squares) {
     arrayOfSquars[0].innerHTML === arrayOfSquars[1].innerHTML &&
         arrayOfSquars[1].innerHTML === arrayOfSquars[2].innerHTML &&
         arrayOfSquars[0].innerHTML !== "") {
-        arrayOfSquars[0].style.backgroundColor = "white";
-        arrayOfSquars[1].style.backgroundColor = "white";
-        arrayOfSquars[2].style.backgroundColor = "white";
+        let firstSquare = arrayOfSquars[0];
+        let secoundSquare = arrayOfSquars[1];
+        let theerdSquare = arrayOfSquars[2];
+        firstSquare.style.backgroundColor = "white";
+        secoundSquare.style.backgroundColor = "white";
+        theerdSquare.style.backgroundColor = "white";
         reset();
         return true;
     }
     else if (arrayOfSquars[3].innerHTML === arrayOfSquars[4].innerHTML &&
         arrayOfSquars[4].innerHTML === arrayOfSquars[5].innerHTML &&
         arrayOfSquars[3].innerHTML !== "") {
-        arrayOfSquars[3].style.backgroundColor = "white";
-        arrayOfSquars[4].style.backgroundColor = "white";
-        arrayOfSquars[5].style.backgroundColor = "white";
+        let firstSquare = arrayOfSquars[3];
+        let secoundSquare = arrayOfSquars[4];
+        let theerdSquare = arrayOfSquars[5];
+        firstSquare.style.backgroundColor = "white";
+        secoundSquare.style.backgroundColor = "white";
+        theerdSquare.style.backgroundColor = "white";
         reset();
         return true;
     }
     else if (arrayOfSquars[6].innerHTML === arrayOfSquars[7].innerHTML &&
         arrayOfSquars[7].innerHTML === arrayOfSquars[8].innerHTML &&
         arrayOfSquars[6].innerHTML !== "") {
-        arrayOfSquars[6].style.backgroundColor = "white";
-        arrayOfSquars[7].style.backgroundColor = "white";
-        arrayOfSquars[8].style.backgroundColor = "white";
+        let firstSquare = arrayOfSquars[6];
+        let secoundSquare = arrayOfSquars[7];
+        let theerdSquare = arrayOfSquars[8];
+        firstSquare.style.backgroundColor = "white";
+        secoundSquare.style.backgroundColor = "white";
+        theerdSquare.style.backgroundColor = "white";
         reset();
         return true;
     }
@@ -100,45 +123,60 @@ function winner(squares) {
     arrayOfSquars[0].innerHTML === arrayOfSquars[3].innerHTML &&
         arrayOfSquars[3].innerHTML === arrayOfSquars[6].innerHTML &&
         arrayOfSquars[0].innerHTML !== "") {
-        arrayOfSquars[0].style.backgroundColor = "white";
-        arrayOfSquars[3].style.backgroundColor = "white";
-        arrayOfSquars[6].style.backgroundColor = "white";
+        let firstSquare = arrayOfSquars[0];
+        let secoundSquare = arrayOfSquars[3];
+        let theerdSquare = arrayOfSquars[6];
+        firstSquare.style.backgroundColor = "white";
+        secoundSquare.style.backgroundColor = "white";
+        theerdSquare.style.backgroundColor = "white";
         reset();
         return true;
     }
     else if (arrayOfSquars[1].innerHTML === arrayOfSquars[4].innerHTML &&
         arrayOfSquars[4].innerHTML === arrayOfSquars[7].innerHTML &&
         arrayOfSquars[1].innerHTML !== "") {
-        arrayOfSquars[1].style.backgroundColor = "white";
-        arrayOfSquars[4].style.backgroundColor = "white";
-        arrayOfSquars[7].style.backgroundColor = "white";
+        let firstSquare = arrayOfSquars[1];
+        let secoundSquare = arrayOfSquars[4];
+        let theerdSquare = arrayOfSquars[7];
+        firstSquare.style.backgroundColor = "white";
+        secoundSquare.style.backgroundColor = "white";
+        theerdSquare.style.backgroundColor = "white";
         reset();
         return true;
     }
     else if (arrayOfSquars[2].innerHTML === arrayOfSquars[5].innerHTML &&
         arrayOfSquars[5].innerHTML === arrayOfSquars[8].innerHTML &&
         arrayOfSquars[2].innerHTML !== "") {
-        arrayOfSquars[2].style.backgroundColor = "white";
-        arrayOfSquars[5].style.backgroundColor = "white";
-        arrayOfSquars[8].style.backgroundColor = "white";
+        let firstSquare = arrayOfSquars[2];
+        let secoundSquare = arrayOfSquars[5];
+        let theerdSquare = arrayOfSquars[8];
+        firstSquare.style.backgroundColor = "white";
+        secoundSquare.style.backgroundColor = "white";
+        theerdSquare.style.backgroundColor = "white";
         reset();
         return true;
     }
     else if (arrayOfSquars[0].innerHTML === arrayOfSquars[4].innerHTML &&
         arrayOfSquars[4].innerHTML === arrayOfSquars[8].innerHTML &&
         arrayOfSquars[0].innerHTML !== "") {
-        arrayOfSquars[0].style.backgroundColor = "white";
-        arrayOfSquars[4].style.backgroundColor = "white";
-        arrayOfSquars[8].style.backgroundColor = "white";
+        let firstSquare = arrayOfSquars[0];
+        let secoundSquare = arrayOfSquars[4];
+        let theerdSquare = arrayOfSquars[8];
+        firstSquare.style.backgroundColor = "white";
+        secoundSquare.style.backgroundColor = "white";
+        theerdSquare.style.backgroundColor = "white";
         reset();
         return true;
     }
     else if (arrayOfSquars[2].innerHTML === arrayOfSquars[4].innerHTML &&
         arrayOfSquars[4].innerHTML === arrayOfSquars[6].innerHTML &&
         arrayOfSquars[2].innerHTML !== "") {
-        arrayOfSquars[2].style.backgroundColor = "white";
-        arrayOfSquars[4].style.backgroundColor = "white";
-        arrayOfSquars[6].style.backgroundColor = "white";
+        let firstSquare = arrayOfSquars[2];
+        let secoundSquare = arrayOfSquars[4];
+        let theerdSquare = arrayOfSquars[6];
+        firstSquare.style.backgroundColor = "white";
+        secoundSquare.style.backgroundColor = "white";
+        theerdSquare.style.backgroundColor = "white";
         reset();
         return true;
     }
@@ -149,23 +187,28 @@ function reset() {
     });
     setTimeout(() => {
         arrayOfSquars.forEach((e) => {
-            e.style.backgroundColor = "unset";
-            e.innerHTML = "";
+            let square = e;
+            square.style.backgroundColor = "unset";
+            square.innerHTML = "";
             count = true;
             turn = "x";
-            playWith === null || playWith === void 0 ? void 0 : playWith.innerText = `"${turn}"`;
+            if (playWith)
+                playWith.innerText = `"${turn}"`;
         });
     }, 750);
 }
 clear === null || clear === void 0 ? void 0 : clear.addEventListener("click", () => {
     sessionStorage.clear();
-    x_win === null || x_win === void 0 ? void 0 : x_win.innerHTML = 0;
-    o_win === null || o_win === void 0 ? void 0 : o_win.innerHTML = 0;
+    if (x_win && o_win) {
+        x_win.innerHTML = "0";
+        o_win.innerHTML = "0";
+    }
 });
 resetGame === null || resetGame === void 0 ? void 0 : resetGame.addEventListener("click", () => {
     arrayOfSquars.forEach((e) => {
         e.innerHTML = "";
         turn = "x";
-        playWith === null || playWith === void 0 ? void 0 : playWith.innerText = `"${turn}"`;
+        if (playWith)
+            playWith.innerText = `"${turn}"`;
     });
 });
